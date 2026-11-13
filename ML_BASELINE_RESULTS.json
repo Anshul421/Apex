@@ -1,0 +1,56 @@
+{
+  "artifact_dir": "artifacts/ml/runs/5ac3da64-8ac0-4967-9605-b8dd108a15a0",
+  "dataset": {
+    "name": "synthetic-athlete-recovery-v1-v1-seed42-n2500.csv",
+    "rows": 2500,
+    "sha256": "dcac2a0efea1e5f9acf0f3076f44fa6d1f94e48d839579a6225b6a640a0c9489",
+    "version": "v1-seed42-n2500"
+  },
+  "decision": "candidate accepted for further evaluation: ROC-AUC lift=0.0511",
+  "experiment_id": "aeaf8bd0-4de0-4b49-a8d3-a73f36832754",
+  "metrics": {
+    "class_balance": 0.516,
+    "deterministic_heuristic": {
+      "accuracy": 0.608,
+      "brier": 0.22495936729540467,
+      "f1": 0.6657571623465212,
+      "positive_rate": 0.6624,
+      "precision": 0.5893719806763285,
+      "recall": 0.7648902821316614,
+      "roc_auc": 0.7031470895568259
+    },
+    "logistic_regression": {
+      "accuracy": 0.688,
+      "brier": 0.20502350797693897,
+      "f1": 0.6957878315132605,
+      "positive_rate": 0.5152,
+      "precision": 0.6925465838509317,
+      "recall": 0.6990595611285266,
+      "roc_auc": 0.7457024607126027
+    },
+    "meets_minimum_auc_lift": true,
+    "random_forest": {
+      "accuracy": 0.6944,
+      "brier": 0.20659595889389984,
+      "f1": 0.6992125984251969,
+      "positive_rate": 0.5056,
+      "precision": 0.7025316455696202,
+      "recall": 0.6959247648902821,
+      "roc_auc": 0.7542258282623395
+    },
+    "selected_auc_lift_over_heuristic": 0.051078738705513604,
+    "selected_model": "random_forest",
+    "test_rows": 625,
+    "train_rows": 1875
+  },
+  "registered_model": {
+    "alias": "candidate",
+    "artifact_uri": "artifacts/ml/runs/5ac3da64-8ac0-4967-9605-b8dd108a15a0/model.joblib",
+    "name": "athlete-recovery-intervention",
+    "stage": "candidate",
+    "version": 1
+  },
+  "run_id": "5ac3da64-8ac0-4967-9605-b8dd108a15a0",
+  "run_status": "finished",
+  "selected_model": "random_forest"
+}

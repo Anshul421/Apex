@@ -1,0 +1,10 @@
+ML + PostgreSQL tests: 5 passed
+ML baseline execution: passed
+Selected model: random_forest
+Selected ROC-AUC: 0.7542258282623395
+Deterministic heuristic ROC-AUC: 0.7031470895568259
+ROC-AUC lift: 0.051078738705513604
+Candidate promotion gate: passed
+Alembic upgrade head -> downgrade base smoke test: passed (SQLite dialect)
+PostgreSQL schema compilation: passed
+Full agent suite: previously user-verified green; not re-executed in this sandbox because network-disabled environment lacks LangGraph/OR-Tools packages.

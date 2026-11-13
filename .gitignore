@@ -1,0 +1,192 @@
+# =========================================================
+# ENVIRONMENT / SECRETS
+# =========================================================
+
+.env
+.env.*
+!.env.example
+
+*.env.local
+*.env.development.local
+*.env.test.local
+*.env.production.local
+
+# Secrets / credentials
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+secrets/
+credentials/
+
+
+# =========================================================
+# PYTHON
+# =========================================================
+
+.venv/
+venv/
+env/
+ENV/
+
+__pycache__/
+*.py[cod]
+*$py.class
+
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.pyright/
+.tox/
+.nox/
+
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+
+
+# =========================================================
+# DATABASES / CHECKPOINTS
+# =========================================================
+
+*.db
+*.sqlite
+*.sqlite3
+
+athleteops.db
+ml_baseline_tracking.db
+langgraph_checkpoints.sqlite
+
+*.db-journal
+*.sqlite-journal
+*.sqlite3-journal
+
+*.db-wal
+*.db-shm
+*.sqlite-wal
+*.sqlite-shm
+
+
+# =========================================================
+# POSTGRES / DATABASE RUNTIME DATA
+# =========================================================
+
+postgres-data/
+pgdata/
+data/postgres/
+
+
+# =========================================================
+# APPLICATION GENERATED DATA
+# =========================================================
+
+data/objects/
+artifacts/ml/
+artifacts/tmp/
+artifacts/cache/
+
+tmp/
+temp/
+.cache/
+
+
+# =========================================================
+# TEST / PLAYWRIGHT OUTPUT
+# =========================================================
+
+playwright-report/
+test-results/
+
+.pytest_cache/
+coverage/
+
+
+# =========================================================
+# LOGS
+# =========================================================
+
+*.log
+logs/
+
+uvicorn.log
+worker.log
+app.log
+
+
+# =========================================================
+# TEMPORARY DEVELOPMENT / PATCH FILES
+# =========================================================
+
+*_patch.txt
+config_patch.txt
+conftest_patch.txt
+env_patch.txt
+
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*~
+
+
+# =========================================================
+# IDE / EDITOR
+# =========================================================
+
+.vscode/
+.idea/
+
+*.code-workspace
+
+
+# =========================================================
+# OPERATING SYSTEM
+# =========================================================
+
+.DS_Store
+.DS_Store?
+._*
+
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+
+# =========================================================
+# NODE / FRONTEND
+# =========================================================
+
+frontend/node_modules/
+frontend/dist/
+frontend/build/
+frontend/.vite/
+
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+
+# =========================================================
+# DOCKER RUNTIME / LOCAL DATA
+# =========================================================
+
+.docker/
+docker-data/
+docker-volumes/
+docker-tmp/
+
+
+# =========================================================
+# LOCAL BACKUPS
+# =========================================================
+
+*.backup
+*.dump
+*.sql.gz
+
+backups/

@@ -1,0 +1,37 @@
+{
+  "database": {
+    "alembic_ml_tracking_migration": "9f4c2a71d8b0",
+    "alembic_upgrade_downgrade_smoke_test": "passed on SQLite dialect",
+    "docker_compose_postgres": true,
+    "live_postgresql_container_test": "not executable in this sandbox because Docker/PostgreSQL binaries are unavailable",
+    "postgresql_primary_dev_config": true,
+    "postgresql_schema_compilation": "passed"
+  },
+  "ml_baseline": {
+    "auc_lift": 0.051078738705513604,
+    "candidate_gate_passed": true,
+    "executed": true,
+    "heuristic_roc_auc": 0.7031470895568259,
+    "registered_model": {
+      "alias": "candidate",
+      "artifact_uri": "artifacts/ml/runs/5ac3da64-8ac0-4967-9605-b8dd108a15a0/model.joblib",
+      "name": "athlete-recovery-intervention",
+      "stage": "candidate",
+      "version": 1
+    },
+    "run_id": "5ac3da64-8ac0-4967-9605-b8dd108a15a0",
+    "selected_model": "random_forest",
+    "selected_roc_auc": 0.7542258282623395,
+    "split": "chronological last 25% holdout",
+    "target": "needs_load_reduction (synthetic planning-intervention flag; not medical/injury prediction)",
+    "tracking_rows": {
+      "ml_experiments": 1,
+      "ml_model_versions": 1,
+      "ml_runs": 1
+    }
+  },
+  "tests": {
+    "full_agent_suite": "not re-executed in this sandbox because LangGraph/OR-Tools packages cannot be installed without network; user-reported suite was green before these storage/ML-only changes",
+    "ml_and_postgres_tests": "5 passed"
+  }
+}
