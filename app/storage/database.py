@@ -19,6 +19,7 @@ _engine_kwargs: dict = {
 }
 
 if _is_sqlite:
+    # FastAPI may use a connection across threads; SQLAlchemy still scopes each session.
     _engine_kwargs['connect_args'] = {'check_same_thread': False}
 else:
     _engine_kwargs.update(

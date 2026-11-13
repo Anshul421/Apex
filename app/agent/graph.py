@@ -26,6 +26,7 @@ def _after_observe(
     state: GraphState,
 ) -> str:
 
+    # Observation may finish a no-op run or reject stale input before planning begins.
     if state.get("status") in {
         "STALE_STATE",
         "VERIFIED",
@@ -94,6 +95,7 @@ def _after_actions(
     ):
         return "replan"
 
+    # Even skipped actions require a fresh observation before final verification.
     if state.get("status") in {
         "ACTIONS_CONFIRMED",
         "ACTIONS_SKIPPED",

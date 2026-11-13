@@ -54,6 +54,7 @@ class PlanVerifier:
         checks: list[LoadConstraintResult] = []
         violations: list[str] = []
 
+        # A plan is valid only against the source versions it was built from.
         stale_plan_ok = plan.world_state_hash == world.world_state_hash
         checks.append(
             LoadConstraintResult(
@@ -116,6 +117,8 @@ class PlanVerifier:
         if unavailable:
             violations.extend([f'ATHLETE_UNAVAILABLE:{x}' for x in unavailable])
 
+        # Pre-action verification checks feasibility; final verification also requires
+        # confirmed calendar/booking receipts and no remaining pending tool actions.
         if include_action_state:
             session_rows = {s.logical_key: s for s in plan.sessions}
             calendar_entries = list(self.db.scalars(select(CalendarEntry).where(CalendarEntry.plan_id == plan.id)).all())

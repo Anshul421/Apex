@@ -268,7 +268,7 @@ class AthleteOpsOrchestrator:
     "error": None,
 
     # Authoritative world state
-    # These were missing and are causing your Pylance error.
+    # Observation populates these fields before planning; empty values mark an unread world.
     "world": {},
     "world_state_hash": "",
 

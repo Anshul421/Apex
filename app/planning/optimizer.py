@@ -50,6 +50,7 @@ class ConstraintOptimizer:
         return True
 
     def _churn_cost(self, candidate: SessionCandidate, parent_by_key: dict[str, SessionPlan]) -> int:
+        # Penalize changes to an existing session so replanning favors schedule stability.
         parent = parent_by_key.get(candidate.logical_key)
         if not parent:
             return 0
@@ -150,6 +151,7 @@ class ConstraintOptimizer:
             for idx, c in enumerate(valid):
                 var = model.NewBoolVar(f'{key}_{idx}')
                 pairs.append((c, var))
+            # Each logical session needs exactly one time/type option, not every candidate.
             model.Add(sum(var for _, var in pairs) == 1)
             vars_by_key[key] = pairs
 
@@ -187,6 +189,7 @@ class ConstraintOptimizer:
         model.Minimize(sum(objective_terms))
 
         solver = cp_model.CpSolver()
+        # Bound request latency; a feasible solution is usable even without an optimality proof.
         solver.parameters.max_time_in_seconds = 5.0
         status = solver.Solve(model)
         if status not in (cp_model.OPTIMAL, cp_model.FEASIBLE):

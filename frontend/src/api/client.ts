@@ -16,6 +16,7 @@ function authHeaders(): HeadersInit {
   const devUser = import.meta.env.VITE_DEV_USER as string | undefined;
   const devTenant = import.meta.env.VITE_DEV_TENANT as string | undefined;
 
+  // Bearer authentication takes precedence; dev identity headers are a local fallback.
   if (bearer) {
     headers.Authorization = `Bearer ${bearer}`;
   } else {
@@ -58,6 +59,7 @@ async function request<T>(path: string, init: RequestInit = {}): Promise<T> {
     throw error;
   }
 
+  // Successful no-content responses have no JSON body to parse.
   if (response.status === 204) return undefined as T;
   return (await response.json()) as T;
 }

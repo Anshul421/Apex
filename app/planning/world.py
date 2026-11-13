@@ -52,6 +52,7 @@ def build_world_snapshot(repo: AthleteRepository, athlete_id: str, settings: Set
         ]
         raise ValueError(f'Missing required state: {", ".join(missing)}')
 
+    # Freshness is checked separately from identity: unchanged data can still expire.
     freshness = {
         'gps': _age_minutes(now, gps.observed_at) <= settings.stale_gps_minutes,
         'wellness': _age_minutes(now, wellness.observed_at) <= settings.stale_wellness_minutes,
@@ -78,6 +79,8 @@ def build_world_snapshot(repo: AthleteRepository, athlete_id: str, settings: Set
         latest_slot_version = max(s.source_version for s in slots)
         availability_version = f'{availability.source_version}|{latest_slot_version}'
 
+    # Hash source versions rather than capture time so unchanged observations retain
+    # the same identity. Producers must advance source_version when their data changes.
     fingerprint = {
         'gps': gps.source_version,
         'wellness': wellness.source_version,
